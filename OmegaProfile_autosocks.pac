@@ -11,12 +11,13 @@ var FindProxyForURL = function(init, profiles) {
 }("+autosocks", {
     "+autosocks": function(url, host, scheme) {
         "use strict";
-        if (/(?:^|\.)raw\.githubusercontent\.com$/.test(host)) return "DIRECT";
+
         if (/(?:^|\.)douban\.com$/.test(host)) return "DIRECT";
         if (/(?:^|\.)kaggle\.com$/.test(host)) return "DIRECT";
         if (/(?:^|\.)ddys\.tv$/.test(host)) return "DIRECT";
         if (/(?:^|\.)yinxiang\.com$/.test(host)) return "DIRECT";
         if (/(?:^|\.)github\.com$/.test(host)) return "+sproxy";
+        if (/(?:^|\.)raw\.githubusercontent\.com$/.test(host)) return "+sproxy";
         return "+__ruleListOf_autosocks";
     },
     "+__ruleListOf_autosocks": function(url, host, scheme) {

@@ -11,7 +11,7 @@ var FindProxyForURL = function(init, profiles) {
 }("+autosocks", {
     "+autosocks": function(url, host, scheme) {
         "use strict";
-
+        if (/(?:^|\.)btnull\.nl|in$/.test(host)) return "DIRECT";
         if (/(?:^|\.)douban\.com$/.test(host)) return "DIRECT";
         if (/(?:^|\.)kaggle\.com$/.test(host)) return "DIRECT";
         if (/(?:^|\.)ddys\.tv$/.test(host)) return "DIRECT";
